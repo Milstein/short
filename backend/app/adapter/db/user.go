@@ -70,8 +70,8 @@ WHERE "%s"=$1;
 	return user, nil
 }
 
-// Create inserts a new User into user table.
-func (u *UserSQL) Create(user entity.User) error {
+// CreateUser inserts a new User into user table.
+func (u *UserSQL) CreateUser(user entity.User) error {
 	statement := fmt.Sprintf(`
 INSERT INTO "%s" ("%s","%s","%s","%s","%s")
 VALUES ($1, $2, $3, $4, $5)
@@ -86,6 +86,10 @@ VALUES ($1, $2, $3, $4, $5)
 
 	_, err := u.db.Exec(statement, user.Email, user.Name, user.LastSignedInAt, user.CreatedAt, user.UpdatedAt)
 	return err
+}
+
+func (u UserSQL) UpdateUserID(email string, userID string) (entity.User, error) {
+	panic("implement me")
 }
 
 // NewUserSQL creates UserSQL

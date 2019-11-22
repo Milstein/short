@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"errors"
 	"short/app/entity"
+	"short/app/usecase/account"
 	"short/app/usecase/auth"
 	"short/app/usecase/service"
 	"testing"
@@ -64,7 +65,7 @@ func TestSingleSignOn_SignIn(t *testing.T) {
 		t.Run(testCase.name, func(t *testing.T) {
 			identityProvider := service.NewIdentityProviderFake("http://localhost/sign-in", "")
 			profileService := service.NewSSOAccountFake(testCase.ssoUser)
-			accountService := service.NewAccountFake(
+			accountService := account.NewFake(
 				testCase.isAccountExist,
 				testCase.isAccountExistErr,
 				testCase.createAccountErr,

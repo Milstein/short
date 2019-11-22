@@ -4,8 +4,8 @@ import (
 	netURL "net/url"
 	"short/app/adapter/facebook"
 	"short/app/adapter/github"
+	"short/app/usecase/account"
 	"short/app/usecase/auth"
-	"short/app/usecase/service"
 	"short/app/usecase/sso"
 	"short/app/usecase/url"
 
@@ -28,18 +28,18 @@ func NewShort(
 	githubAPI github.API,
 	facebookAPI facebook.API,
 	authenticator auth.Authenticator,
-	accountService service.Account,
+	account account.Account,
 ) []fw.Route {
 	githubSignIn := sso.NewSingleSignOn(
 		githubAPI.IdentityProvider,
 		githubAPI.Account,
-		accountService,
+		account,
 		authenticator,
 	)
 	facebookSignIn := sso.NewSingleSignOn(
 		facebookAPI.IdentityProvider,
 		facebookAPI.Account,
-		accountService,
+		account,
 		authenticator,
 	)
 	frontendURL, err := netURL.Parse(webFrontendURL)

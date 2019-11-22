@@ -2,6 +2,7 @@ package entity
 
 import "time"
 
+// URL represents a mapping between an alias and a long link
 type URL struct {
 	Alias       string
 	OriginalURL string

@@ -156,7 +156,7 @@ func TestUserSql_Create(t *testing.T) {
 
 			userRepo := NewUserSQL(db)
 
-			err = userRepo.Create(testCase.user)
+			err = userRepo.CreateUser(testCase.user)
 			if testCase.hasErr {
 				mdtest.NotEqual(t, nil, err)
 				return

@@ -1,4 +1,4 @@
-package service
+package account
 
 type Account interface {
 	IsAccountExist(email string) (bool, error)

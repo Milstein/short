@@ -1,27 +1,27 @@
-package service
+package account
 
-var _ Account = (*AccountFake)(nil)
+var _ Account = (*Fake)(nil)
 
-type AccountFake struct {
+type Fake struct {
 	isAccountExist    bool
 	isAccountExistErr error
 	createAccountErr  error
 }
 
-func (a AccountFake) IsAccountExist(email string) (bool, error) {
+func (a Fake) IsAccountExist(email string) (bool, error) {
 	return a.isAccountExist, a.isAccountExistErr
 }
 
-func (a AccountFake) CreateAccount(email string, name string) error {
+func (a Fake) CreateAccount(email string, name string) error {
 	return a.createAccountErr
 }
 
-func NewAccountFake(
+func NewFake(
 	isAccountExist bool,
 	isAccountExistErr error,
 	createAccountErr error,
-) AccountFake {
-	return AccountFake{
+) Fake {
+	return Fake{
 		isAccountExist:    isAccountExist,
 		isAccountExistErr: isAccountExistErr,
 		createAccountErr:  createAccountErr,

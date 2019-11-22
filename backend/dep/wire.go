@@ -134,7 +134,7 @@ func InjectRoutingService(
 	webFrontendURL provider.WebFrontendURL,
 ) mdservice.Service {
 	wire.Build(
-		wire.Bind(new(service.Account), new(account.RepoService)),
+		wire.Bind(new(account.Account), new(account.Persist)),
 		wire.Bind(new(url.Retriever), new(url.RetrieverPersist)),
 		wire.Bind(new(repo.User), new(*(db.UserSQL))),
 		wire.Bind(new(repo.URL), new(*db.URLSql)),
@@ -155,7 +155,7 @@ func InjectRoutingService(
 		db.NewUserSQL,
 		db.NewURLSql,
 		url.NewRetrieverPersist,
-		account.NewRepoService,
+		account.NewPersist,
 		provider.NewShortRoutes,
 	)
 	return mdservice.Service{}
