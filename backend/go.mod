@@ -11,8 +11,7 @@ require (
 	github.com/joho/godotenv v1.3.0
 	github.com/rubenv/sql-migrate v0.0.0-20191116071645-ce2300be8dc8 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
-	golang.org/x/net v0.0.0-20191116160921-f9c825593386 // indirect
-	golang.org/x/sys v0.0.0-20191118133127-cf1e2d577169 // indirect
+	golang.org/x/net v0.7.0 // indirect
 	google.golang.org/genproto v0.0.0-20191115221424-83cc0476cb11 // indirect
 	google.golang.org/grpc v1.25.1
 	gopkg.in/yaml.v2 v2.2.5 // indirect
